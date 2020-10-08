@@ -5,7 +5,7 @@
       color="primary"
       dark
     >
-      <v-app-bar-nav-icon @click.stop="toggleSideMenu"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon v-show="$store.state.login_user" @click.stop="toggleSideMenu"></v-app-bar-nav-icon>
       <v-toolbar-title>My Address List</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items v-if="$store.state.login_user">
@@ -34,8 +34,13 @@ export default {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.setLoginUser(user)
+        this.fetchAddresses()
+          if (this.$router.currentRoute.name === 'home') {
+            this.$router.push({ name: 'addresses' }, () => {})
+          }
         } else {
         this.deleteLoginUser()
+        this.$router.push({ name: 'home' }, () => {})
       }
     })
   },
@@ -43,7 +48,7 @@ export default {
     //
   }),
   methods: {
-    ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteLoginUser'])
+    ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteLoginUser', 'fetchAddresses'])
   }
 };
 </script>
