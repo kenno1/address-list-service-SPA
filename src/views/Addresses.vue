@@ -12,7 +12,8 @@
           </v-btn>
         </router-link>
       </v-flex>
-      <v-flex xs12 mt-3 justify-center>
+
+      <v-flex xs12 mt-5 justify-center>
         <v-data-table :headers='headers' :items='addresses'>
           <template v-slot:[`item.action`]="{ item }">
             <router-link :to="{ name: 'address_edit', params: { address_id: item.id }}">
