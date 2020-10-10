@@ -11,11 +11,11 @@
       <v-toolbar-items v-if="$store.state.login_user">
         <v-btn text @click="logout">ログアウト</v-btn>
       </v-toolbar-items>
+      <SideNav/>
     </v-app-bar>
-    <SideNav/>
 
     <v-content>
-      <v-container fluid fill-height align-start>
+      <v-container>
         <router-view/>
       </v-container>
     </v-content>
