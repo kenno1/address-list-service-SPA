@@ -1,24 +1,12 @@
 # address_app
 
-## Project setup
-```
-yarn install
-```
+= Firebase command list = 
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+◇Deploy on Firebase
 
-### Compiles and minifies for production
-```
-yarn build
-```
+firebase deploy
 
-### Lints and fixes files
-```
-yarn lint
-```
+◇Quit deploying on Firebase
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+firebase hosting:disable
+
